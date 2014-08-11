@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79762D671987B46B002D239E /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D5E1987B46B002D239E /* BRAddressEntity.m */; };
+		79762D681987B46B002D239E /* BRPeerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D601987B46B002D239E /* BRPeerEntity.m */; };
+		79762D691987B46B002D239E /* BRTransactionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D621987B46B002D239E /* BRTransactionEntity.m */; };
+		79762D6A1987B46B002D239E /* BRTxInputEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D641987B46B002D239E /* BRTxInputEntity.m */; };
+		79762D6B1987B46B002D239E /* BRTxOutputEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D661987B46B002D239E /* BRTxOutputEntity.m */; };
+		79762D8A1987B48C002D239E /* BRBIP32Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D6D1987B48C002D239E /* BRBIP32Sequence.m */; };
+		79762D8B1987B48C002D239E /* BRBIP39Mnemonic.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D6F1987B48C002D239E /* BRBIP39Mnemonic.m */; };
+		79762D8C1987B48C002D239E /* BRBloomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D711987B48C002D239E /* BRBloomFilter.m */; };
+		79762D8D1987B48C002D239E /* BRKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D731987B48C002D239E /* BRKey.m */; };
+		79762D8E1987B48C002D239E /* BRKey+BIP38.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D751987B48C002D239E /* BRKey+BIP38.m */; };
+		79762D8F1987B48C002D239E /* BRMerkleBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D781987B48C002D239E /* BRMerkleBlock.m */; };
+		79762D901987B48C002D239E /* BRMerkleBlockEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D7A1987B48C002D239E /* BRMerkleBlockEntity.m */; };
+		79762D911987B48C002D239E /* BRPaymentProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D7D1987B48C002D239E /* BRPaymentProtocol.m */; };
+		79762D921987B48C002D239E /* BRPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D7F1987B48C002D239E /* BRPaymentRequest.m */; };
+		79762D931987B48C002D239E /* BRPeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D811987B48C002D239E /* BRPeer.m */; };
+		79762D941987B48C002D239E /* BRPeerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D831987B48C002D239E /* BRPeerManager.m */; };
+		79762D951987B48C002D239E /* BRTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D851987B48C002D239E /* BRTransaction.m */; };
+		79762D961987B48C002D239E /* BRWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D871987B48C002D239E /* BRWallet.m */; };
+		79762D971987B48C002D239E /* BRWalletManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D891987B48C002D239E /* BRWalletManager.m */; };
+		79762DA31987B4BD002D239E /* NSData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D9A1987B4BD002D239E /* NSData+Bitcoin.m */; };
+		79762DA41987B4BD002D239E /* NSData+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D9C1987B4BD002D239E /* NSData+Hash.m */; };
+		79762DA51987B4BD002D239E /* NSManagedObject+Sugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D9E1987B4BD002D239E /* NSManagedObject+Sugar.m */; };
+		79762DA61987B4BD002D239E /* NSMutableData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762DA01987B4BD002D239E /* NSMutableData+Bitcoin.m */; };
+		79762DA71987B4BD002D239E /* NSString+Base58.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762DA21987B4BD002D239E /* NSString+Base58.m */; };
+		79762DAB1987B6F7002D239E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762DAA1987B6F7002D239E /* Reachability.m */; };
+		797636A51987B8A5002D239E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797636A31987B8A5002D239E /* libcrypto.a */; };
+		797636A61987B8A5002D239E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797636A41987B8A5002D239E /* libssl.a */; };
 		E15C8F0B1958C19000C6D705 /* BIP39EnglishWords.plist in Resources */ = {isa = PBXBuildFile; fileRef = E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */; };
 		E15C8F0D1959E2A400C6D705 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15C8F0C1959E2A400C6D705 /* Security.framework */; };
 		E1AA5D00195363BE006F3545 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AA5CFF195363BE006F3545 /* Foundation.framework */; };
@@ -39,6 +66,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79762D5D1987B46B002D239E /* BRAddressEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressEntity.h; sourceTree = "<group>"; };
+		79762D5E1987B46B002D239E /* BRAddressEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressEntity.m; sourceTree = "<group>"; };
+		79762D5F1987B46B002D239E /* BRPeerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeerEntity.h; sourceTree = "<group>"; };
+		79762D601987B46B002D239E /* BRPeerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPeerEntity.m; sourceTree = "<group>"; };
+		79762D611987B46B002D239E /* BRTransactionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTransactionEntity.h; sourceTree = "<group>"; };
+		79762D621987B46B002D239E /* BRTransactionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTransactionEntity.m; sourceTree = "<group>"; };
+		79762D631987B46B002D239E /* BRTxInputEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTxInputEntity.h; sourceTree = "<group>"; };
+		79762D641987B46B002D239E /* BRTxInputEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTxInputEntity.m; sourceTree = "<group>"; };
+		79762D651987B46B002D239E /* BRTxOutputEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTxOutputEntity.h; sourceTree = "<group>"; };
+		79762D661987B46B002D239E /* BRTxOutputEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTxOutputEntity.m; sourceTree = "<group>"; };
+		79762D6C1987B48C002D239E /* BRBIP32Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBIP32Sequence.h; sourceTree = "<group>"; };
+		79762D6D1987B48C002D239E /* BRBIP32Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBIP32Sequence.m; sourceTree = "<group>"; };
+		79762D6E1987B48C002D239E /* BRBIP39Mnemonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBIP39Mnemonic.h; sourceTree = "<group>"; };
+		79762D6F1987B48C002D239E /* BRBIP39Mnemonic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBIP39Mnemonic.m; sourceTree = "<group>"; };
+		79762D701987B48C002D239E /* BRBloomFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBloomFilter.h; sourceTree = "<group>"; };
+		79762D711987B48C002D239E /* BRBloomFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBloomFilter.m; sourceTree = "<group>"; };
+		79762D721987B48C002D239E /* BRKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRKey.h; sourceTree = "<group>"; };
+		79762D731987B48C002D239E /* BRKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRKey.m; sourceTree = "<group>"; };
+		79762D741987B48C002D239E /* BRKey+BIP38.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRKey+BIP38.h"; sourceTree = "<group>"; };
+		79762D751987B48C002D239E /* BRKey+BIP38.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BRKey+BIP38.m"; sourceTree = "<group>"; };
+		79762D761987B48C002D239E /* BRKeySequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRKeySequence.h; sourceTree = "<group>"; };
+		79762D771987B48C002D239E /* BRMerkleBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMerkleBlock.h; sourceTree = "<group>"; };
+		79762D781987B48C002D239E /* BRMerkleBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMerkleBlock.m; sourceTree = "<group>"; };
+		79762D791987B48C002D239E /* BRMerkleBlockEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMerkleBlockEntity.h; sourceTree = "<group>"; };
+		79762D7A1987B48C002D239E /* BRMerkleBlockEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMerkleBlockEntity.m; sourceTree = "<group>"; };
+		79762D7B1987B48C002D239E /* BRMnemonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMnemonic.h; sourceTree = "<group>"; };
+		79762D7C1987B48C002D239E /* BRPaymentProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPaymentProtocol.h; sourceTree = "<group>"; };
+		79762D7D1987B48C002D239E /* BRPaymentProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPaymentProtocol.m; sourceTree = "<group>"; };
+		79762D7E1987B48C002D239E /* BRPaymentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPaymentRequest.h; sourceTree = "<group>"; };
+		79762D7F1987B48C002D239E /* BRPaymentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPaymentRequest.m; sourceTree = "<group>"; };
+		79762D801987B48C002D239E /* BRPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeer.h; sourceTree = "<group>"; };
+		79762D811987B48C002D239E /* BRPeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPeer.m; sourceTree = "<group>"; };
+		79762D821987B48C002D239E /* BRPeerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeerManager.h; sourceTree = "<group>"; };
+		79762D831987B48C002D239E /* BRPeerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRPeerManager.m; sourceTree = "<group>"; };
+		79762D841987B48C002D239E /* BRTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTransaction.h; sourceTree = "<group>"; };
+		79762D851987B48C002D239E /* BRTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTransaction.m; sourceTree = "<group>"; };
+		79762D861987B48C002D239E /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
+		79762D871987B48C002D239E /* BRWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRWallet.m; sourceTree = "<group>"; };
+		79762D881987B48C002D239E /* BRWalletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWalletManager.h; sourceTree = "<group>"; };
+		79762D891987B48C002D239E /* BRWalletManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRWalletManager.m; sourceTree = "<group>"; };
+		79762D991987B4BD002D239E /* NSData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Bitcoin.h"; sourceTree = "<group>"; };
+		79762D9A1987B4BD002D239E /* NSData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Bitcoin.m"; sourceTree = "<group>"; };
+		79762D9B1987B4BD002D239E /* NSData+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Hash.h"; sourceTree = "<group>"; };
+		79762D9C1987B4BD002D239E /* NSData+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hash.m"; sourceTree = "<group>"; };
+		79762D9D1987B4BD002D239E /* NSManagedObject+Sugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Sugar.h"; sourceTree = "<group>"; };
+		79762D9E1987B4BD002D239E /* NSManagedObject+Sugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Sugar.m"; sourceTree = "<group>"; };
+		79762D9F1987B4BD002D239E /* NSMutableData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Bitcoin.h"; sourceTree = "<group>"; };
+		79762DA01987B4BD002D239E /* NSMutableData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Bitcoin.m"; sourceTree = "<group>"; };
+		79762DA11987B4BD002D239E /* NSString+Base58.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base58.h"; sourceTree = "<group>"; };
+		79762DA21987B4BD002D239E /* NSString+Base58.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base58.m"; sourceTree = "<group>"; };
+		79762DA91987B6F7002D239E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = SOURCE_ROOT; };
+		79762DAA1987B6F7002D239E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = SOURCE_ROOT; };
+		797636A31987B8A5002D239E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		797636A41987B8A5002D239E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BIP39EnglishWords.plist; sourceTree = "<group>"; };
 		E15C8F0C1959E2A400C6D705 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1AA5CFC195363BE006F3545 /* Aegis Bitcoin Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aegis Bitcoin Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,10 +152,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797636A61987B8A5002D239E /* libssl.a in Frameworks */,
 				E15C8F0D1959E2A400C6D705 /* Security.framework in Frameworks */,
 				E1AA5D02195363BE006F3545 /* CoreGraphics.framework in Frameworks */,
 				E1AA5D04195363BE006F3545 /* UIKit.framework in Frameworks */,
 				E1AA5D00195363BE006F3545 /* Foundation.framework in Frameworks */,
+				797636A51987B8A5002D239E /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +174,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79762D5C1987B44E002D239E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				79762D5D1987B46B002D239E /* BRAddressEntity.h */,
+				79762D5E1987B46B002D239E /* BRAddressEntity.m */,
+				79762D5F1987B46B002D239E /* BRPeerEntity.h */,
+				79762D601987B46B002D239E /* BRPeerEntity.m */,
+				79762D611987B46B002D239E /* BRTransactionEntity.h */,
+				79762D621987B46B002D239E /* BRTransactionEntity.m */,
+				79762D631987B46B002D239E /* BRTxInputEntity.h */,
+				79762D641987B46B002D239E /* BRTxInputEntity.m */,
+				79762D651987B46B002D239E /* BRTxOutputEntity.h */,
+				79762D661987B46B002D239E /* BRTxOutputEntity.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		79762D981987B49E002D239E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				79762D991987B4BD002D239E /* NSData+Bitcoin.h */,
+				79762D9A1987B4BD002D239E /* NSData+Bitcoin.m */,
+				79762D9B1987B4BD002D239E /* NSData+Hash.h */,
+				79762D9C1987B4BD002D239E /* NSData+Hash.m */,
+				79762D9D1987B4BD002D239E /* NSManagedObject+Sugar.h */,
+				79762D9E1987B4BD002D239E /* NSManagedObject+Sugar.m */,
+				79762D9F1987B4BD002D239E /* NSMutableData+Bitcoin.h */,
+				79762DA01987B4BD002D239E /* NSMutableData+Bitcoin.m */,
+				79762DA11987B4BD002D239E /* NSString+Base58.h */,
+				79762DA21987B4BD002D239E /* NSString+Base58.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		79762DA81987B6EC002D239E /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				79762DA91987B6F7002D239E /* Reachability.h */,
+				79762DAA1987B6F7002D239E /* Reachability.m */,
+			);
+			name = Externals;
+			sourceTree = "<group>";
+		};
+		797636A21987B8A5002D239E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				797636A31987B8A5002D239E /* libcrypto.a */,
+				797636A41987B8A5002D239E /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		E1AA5CF3195363BE006F3545 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +248,7 @@
 		E1AA5CFE195363BE006F3545 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				797636A21987B8A5002D239E /* lib */,
 				E15C8F0C1959E2A400C6D705 /* Security.framework */,
 				E1AA5CFF195363BE006F3545 /* Foundation.framework */,
 				E1AA5D01195363BE006F3545 /* CoreGraphics.framework */,
@@ -125,6 +261,7 @@
 		E1AA5D05195363BE006F3545 /* Aegis Bitcoin Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				79762D981987B49E002D239E /* Categories */,
 				E1AA5D3B195520A9006F3545 /* Utils */,
 				E1AA5D33195484CC006F3545 /* Resources */,
 				E1AA5D321954810C006F3545 /* Controllers */,
@@ -133,6 +270,7 @@
 				E1AA5D0E195363BF006F3545 /* AWAppDelegate.h */,
 				E1AA5D0F195363BF006F3545 /* AWAppDelegate.m */,
 				E1AA5D11195363BF006F3545 /* Images.xcassets */,
+				79762DA81987B6EC002D239E /* Externals */,
 				E1AA5D06195363BE006F3545 /* Supporting Files */,
 				E1AA5D2E195363D5006F3545 /* Main.storyboard */,
 				E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */,
@@ -179,6 +317,37 @@
 		E1AA5D3119548104006F3545 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				79762D5C1987B44E002D239E /* Entities */,
+				79762D6C1987B48C002D239E /* BRBIP32Sequence.h */,
+				79762D6D1987B48C002D239E /* BRBIP32Sequence.m */,
+				79762D6E1987B48C002D239E /* BRBIP39Mnemonic.h */,
+				79762D6F1987B48C002D239E /* BRBIP39Mnemonic.m */,
+				79762D701987B48C002D239E /* BRBloomFilter.h */,
+				79762D711987B48C002D239E /* BRBloomFilter.m */,
+				79762D721987B48C002D239E /* BRKey.h */,
+				79762D731987B48C002D239E /* BRKey.m */,
+				79762D741987B48C002D239E /* BRKey+BIP38.h */,
+				79762D751987B48C002D239E /* BRKey+BIP38.m */,
+				79762D761987B48C002D239E /* BRKeySequence.h */,
+				79762D771987B48C002D239E /* BRMerkleBlock.h */,
+				79762D781987B48C002D239E /* BRMerkleBlock.m */,
+				79762D791987B48C002D239E /* BRMerkleBlockEntity.h */,
+				79762D7A1987B48C002D239E /* BRMerkleBlockEntity.m */,
+				79762D7B1987B48C002D239E /* BRMnemonic.h */,
+				79762D7C1987B48C002D239E /* BRPaymentProtocol.h */,
+				79762D7D1987B48C002D239E /* BRPaymentProtocol.m */,
+				79762D7E1987B48C002D239E /* BRPaymentRequest.h */,
+				79762D7F1987B48C002D239E /* BRPaymentRequest.m */,
+				79762D801987B48C002D239E /* BRPeer.h */,
+				79762D811987B48C002D239E /* BRPeer.m */,
+				79762D821987B48C002D239E /* BRPeerManager.h */,
+				79762D831987B48C002D239E /* BRPeerManager.m */,
+				79762D841987B48C002D239E /* BRTransaction.h */,
+				79762D851987B48C002D239E /* BRTransaction.m */,
+				79762D861987B48C002D239E /* BRWallet.h */,
+				79762D871987B48C002D239E /* BRWallet.m */,
+				79762D881987B48C002D239E /* BRWalletManager.h */,
+				79762D891987B48C002D239E /* BRWalletManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -310,10 +479,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79762D671987B46B002D239E /* BRAddressEntity.m in Sources */,
+				79762D8F1987B48C002D239E /* BRMerkleBlock.m in Sources */,
+				79762D6A1987B46B002D239E /* BRTxInputEntity.m in Sources */,
+				79762DA61987B4BD002D239E /* NSMutableData+Bitcoin.m in Sources */,
 				E1AA5D3A19548A6E006F3545 /* AWInitViewController.m in Sources */,
+				79762D971987B48C002D239E /* BRWalletManager.m in Sources */,
+				79762D921987B48C002D239E /* BRPaymentRequest.m in Sources */,
+				79762DA71987B4BD002D239E /* NSString+Base58.m in Sources */,
 				E1AA5D3E195520DB006F3545 /* NJOPasswordStrengthEvaluator.m in Sources */,
+				79762D951987B48C002D239E /* BRTransaction.m in Sources */,
+				79762D691987B46B002D239E /* BRTransactionEntity.m in Sources */,
+				79762DA41987B4BD002D239E /* NSData+Hash.m in Sources */,
+				79762D8D1987B48C002D239E /* BRKey.m in Sources */,
 				E1AA5D10195363BF006F3545 /* AWAppDelegate.m in Sources */,
+				79762DA51987B4BD002D239E /* NSManagedObject+Sugar.m in Sources */,
+				79762D931987B48C002D239E /* BRPeer.m in Sources */,
+				79762D6B1987B46B002D239E /* BRTxOutputEntity.m in Sources */,
+				79762D911987B48C002D239E /* BRPaymentProtocol.m in Sources */,
+				79762D8E1987B48C002D239E /* BRKey+BIP38.m in Sources */,
+				79762D941987B48C002D239E /* BRPeerManager.m in Sources */,
+				79762D8A1987B48C002D239E /* BRBIP32Sequence.m in Sources */,
+				79762DA31987B4BD002D239E /* NSData+Bitcoin.m in Sources */,
+				79762D681987B46B002D239E /* BRPeerEntity.m in Sources */,
+				79762D901987B48C002D239E /* BRMerkleBlockEntity.m in Sources */,
+				79762DAB1987B6F7002D239E /* Reachability.m in Sources */,
+				79762D8C1987B48C002D239E /* BRBloomFilter.m in Sources */,
 				E1AA5D0C195363BF006F3545 /* main.m in Sources */,
+				79762D961987B48C002D239E /* BRWallet.m in Sources */,
+				79762D8B1987B48C002D239E /* BRBIP39Mnemonic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +581,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -420,6 +619,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,10 +638,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"include/**",
+				);
 				INFOPLIST_FILE = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
+					"$(PROJ_LOC)/lib",
+					"$(PROJECT_DIR)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -451,10 +662,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"include/**",
+				);
 				INFOPLIST_FILE = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
+					"$(PROJ_LOC)/lib",
+					"$(PROJECT_DIR)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
