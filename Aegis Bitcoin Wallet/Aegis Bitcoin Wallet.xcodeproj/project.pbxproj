@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6349C5199E514B00B9B8E9 /* AWSeedStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */; };
+		2B6349CA199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349C7199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld */; };
+		2B6349CB199E5FD000B9B8E9 /* FixedPeers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */; };
 		79762D671987B46B002D239E /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D5E1987B46B002D239E /* BRAddressEntity.m */; };
 		79762D681987B46B002D239E /* BRPeerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D601987B46B002D239E /* BRPeerEntity.m */; };
 		79762D691987B46B002D239E /* BRTransactionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D621987B46B002D239E /* BRTransactionEntity.m */; };
@@ -66,6 +69,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B6349C3199E514B00B9B8E9 /* AWSeedStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSeedStartController.h; sourceTree = "<group>"; };
+		2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSeedStartController.m; sourceTree = "<group>"; };
+		2B6349C6199E5BB700B9B8E9 /* Aegis Bitcoin Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Aegis Bitcoin Wallet.entitlements"; sourceTree = "<group>"; };
+		2B6349C8199E5FD000B9B8E9 /* AegisWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AegisWallet.xcdatamodel; sourceTree = "<group>"; };
+		2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FixedPeers.plist; path = ../FixedPeers.plist; sourceTree = "<group>"; };
 		79762D5D1987B46B002D239E /* BRAddressEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressEntity.h; sourceTree = "<group>"; };
 		79762D5E1987B46B002D239E /* BRAddressEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressEntity.m; sourceTree = "<group>"; };
 		79762D5F1987B46B002D239E /* BRPeerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeerEntity.h; sourceTree = "<group>"; };
@@ -261,6 +269,9 @@
 		E1AA5D05195363BE006F3545 /* Aegis Bitcoin Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				2B6349C7199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld */,
+				2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */,
+				2B6349C6199E5BB700B9B8E9 /* Aegis Bitcoin Wallet.entitlements */,
 				79762D981987B49E002D239E /* Categories */,
 				E1AA5D3B195520A9006F3545 /* Utils */,
 				E1AA5D33195484CC006F3545 /* Resources */,
@@ -357,6 +368,8 @@
 			children = (
 				E1AA5D3819548A6E006F3545 /* AWInitViewController.h */,
 				E1AA5D3919548A6E006F3545 /* AWInitViewController.m */,
+				2B6349C3199E514B00B9B8E9 /* AWSeedStartController.h */,
+				2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -427,6 +440,17 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bojan Simic";
 				TargetAttributes = {
+					E1AA5CFB195363BE006F3545 = {
+						DevelopmentTeam = 9Z9Y6J7L75;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
 					E1AA5D16195363BF006F3545 = {
 						TestTargetID = E1AA5CFB195363BE006F3545;
 					};
@@ -456,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1AA5D37195484E8006F3545 /* neustadt-semibold.otf in Resources */,
+				2B6349CB199E5FD000B9B8E9 /* FixedPeers.plist in Resources */,
 				E1AA5D2F195363D6006F3545 /* Main.storyboard in Resources */,
 				E1AA5D0A195363BF006F3545 /* InfoPlist.strings in Resources */,
 				E15C8F0B1958C19000C6D705 /* BIP39EnglishWords.plist in Resources */,
@@ -497,11 +522,13 @@
 				79762D931987B48C002D239E /* BRPeer.m in Sources */,
 				79762D6B1987B46B002D239E /* BRTxOutputEntity.m in Sources */,
 				79762D911987B48C002D239E /* BRPaymentProtocol.m in Sources */,
+				2B6349CA199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld in Sources */,
 				79762D8E1987B48C002D239E /* BRKey+BIP38.m in Sources */,
 				79762D941987B48C002D239E /* BRPeerManager.m in Sources */,
 				79762D8A1987B48C002D239E /* BRBIP32Sequence.m in Sources */,
 				79762DA31987B4BD002D239E /* NSData+Bitcoin.m in Sources */,
 				79762D681987B46B002D239E /* BRPeerEntity.m in Sources */,
+				2B6349C5199E514B00B9B8E9 /* AWSeedStartController.m in Sources */,
 				79762D901987B48C002D239E /* BRMerkleBlockEntity.m in Sources */,
 				79762DAB1987B6F7002D239E /* Reachability.m in Sources */,
 				79762D8C1987B48C002D239E /* BRBloomFilter.m in Sources */,
@@ -636,6 +663,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -651,6 +680,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -660,6 +690,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -675,6 +707,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -750,6 +783,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2B6349C7199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2B6349C8199E5FD000B9B8E9 /* AegisWallet.xcdatamodel */,
+			);
+			currentVersion = 2B6349C8199E5FD000B9B8E9 /* AegisWallet.xcdatamodel */;
+			name = AegisWallet.xcdatamodeld;
+			path = ../AegisWallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E1AA5CF4195363BE006F3545 /* Project object */;
 }

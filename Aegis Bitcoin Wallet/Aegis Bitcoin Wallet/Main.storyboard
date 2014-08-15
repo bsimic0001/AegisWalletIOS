@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KUl-62-92z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cWA-6Q-MFD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -79,6 +79,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="RhW-KJ-sjo"/>
                     <connections>
                         <outlet property="backgroundView" destination="lvH-JV-WmN" id="0Qe-BM-8u0"/>
                         <outlet property="continueButton" destination="3Qu-aA-28y" id="GYy-E6-f2t"/>
@@ -88,9 +89,59 @@
                         <outlet property="passwordStrengthLabel" destination="ZkB-bf-ykL" id="6lD-po-2kb"/>
                         <outlet property="walletNameTextView" destination="97O-Aw-t89" id="R6J-NQ-irb"/>
                         <outlet property="welcomeTextView" destination="49C-QR-h0S" id="715-NZ-yHl"/>
+                        <segue destination="Oh9-Ob-aWP" kind="push" identifier="continueToSeedStart" id="1r5-QP-4KD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4k-ey-8jh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="21"/>
+        </scene>
+        <!--Seed Start Controller-->
+        <scene sceneID="v91-LJ-vnG">
+            <objects>
+                <viewController id="Oh9-Ob-aWP" customClass="AWSeedStartController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Udi-F1-a2f"/>
+                        <viewControllerLayoutGuide type="bottom" id="tSo-UR-Z5d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dnt-Gh-IvL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7h-Jf-kMW">
+                                <rect key="frame" x="0.0" y="116" width="320" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jAr-bj-pu7"/>
+                    <connections>
+                        <outlet property="SeedLabel" destination="K7h-Jf-kMW" id="Kex-aZ-SF3"/>
+                        <outlet property="seedLabel" destination="K7h-Jf-kMW" id="zFp-ap-mkX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYi-CR-sjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="21"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bEs-Wm-NyX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cWA-6Q-MFD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jl3-l6-jGL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KUl-62-92z" kind="relationship" relationship="rootViewController" id="oE9-qi-Lg8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MiS-DA-Y6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120" y="21"/>
         </scene>

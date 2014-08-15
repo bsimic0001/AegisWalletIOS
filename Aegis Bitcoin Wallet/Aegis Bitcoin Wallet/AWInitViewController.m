@@ -81,7 +81,7 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
-    else if(strength < 3){
+    else if(strength < 0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Weak Password"
                                                         message:@"Please choose a secure password! It should be long, hard to predict, and contain digits, special characters, lower and upper case letters."
                                                        delegate:nil
@@ -90,12 +90,9 @@
         [alert show];
     }
     else {
-        
+        //TODO: add somethign to happen once password is ok.
+        [self performSegueWithIdentifier:@"continueToSeedStart" sender:self];
     }
-    
-    
-    
-    
 }
 
 - (IBAction) passwordTextFieldChanged:(id)sender

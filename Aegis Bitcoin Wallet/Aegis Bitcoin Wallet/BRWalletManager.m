@@ -190,6 +190,9 @@ static NSData *getKeychainData(NSString *key)
 
 - (BRWallet *)wallet
 {
+    
+    NSLog(@"SEED IS: %@", self.seed);
+    
     if (_wallet == nil && self.seed) {
         @synchronized(self) {
             if (_wallet == nil) {
@@ -213,9 +216,11 @@ static NSData *getKeychainData(NSString *key)
         if ([seed isEqual:self.seed]) return;
 
         [[NSManagedObject context] performBlockAndWait:^{
+            
             [BRAddressEntity deleteObjects:[BRAddressEntity allObjects]];
             [BRTransactionEntity deleteObjects:[BRTransactionEntity allObjects]];
             [NSManagedObject saveContext];
+            
         }];
 
         setKeychainData(nil, PIN_KEY);
