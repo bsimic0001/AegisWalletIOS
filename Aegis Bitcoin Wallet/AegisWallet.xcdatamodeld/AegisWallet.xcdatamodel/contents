@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BRAddressEntity" representedClassName="BRAddressEntity" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="index" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
@@ -49,11 +49,11 @@
         <relationship name="transaction" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BRTransactionEntity" inverseName="outputs" inverseEntity="BRTransactionEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BRAddressEntity" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="BRMerkleBlockEntity" positionX="0" positionY="0" width="128" height="208"/>
-        <element name="BRPeerEntity" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="BRTransactionEntity" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="BRTxInputEntity" positionX="0" positionY="0" width="128" height="118"/>
-        <element name="BRTxOutputEntity" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="BRAddressEntity" positionX="-126" positionY="-153" width="128" height="90"/>
+        <element name="BRMerkleBlockEntity" positionX="45" positionY="305" width="128" height="208"/>
+        <element name="BRPeerEntity" positionX="-135" positionY="306" width="128" height="120"/>
+        <element name="BRTransactionEntity" positionX="207" positionY="72" width="128" height="120"/>
+        <element name="BRTxInputEntity" positionX="88" positionY="-153" width="128" height="118"/>
+        <element name="BRTxOutputEntity" positionX="-162" positionY="0" width="128" height="150"/>
     </elements>
 </model>

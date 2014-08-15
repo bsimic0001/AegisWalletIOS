@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B6349C5199E514B00B9B8E9 /* AWSeedStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */; };
-		2B6349CA199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349C7199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld */; };
 		2B6349CB199E5FD000B9B8E9 /* FixedPeers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */; };
+		2B6349D3199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349D1199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld */; };
 		79762D671987B46B002D239E /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D5E1987B46B002D239E /* BRAddressEntity.m */; };
 		79762D681987B46B002D239E /* BRPeerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D601987B46B002D239E /* BRPeerEntity.m */; };
 		79762D691987B46B002D239E /* BRTransactionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D621987B46B002D239E /* BRTransactionEntity.m */; };
@@ -72,8 +72,8 @@
 		2B6349C3199E514B00B9B8E9 /* AWSeedStartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSeedStartController.h; sourceTree = "<group>"; };
 		2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSeedStartController.m; sourceTree = "<group>"; };
 		2B6349C6199E5BB700B9B8E9 /* Aegis Bitcoin Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Aegis Bitcoin Wallet.entitlements"; sourceTree = "<group>"; };
-		2B6349C8199E5FD000B9B8E9 /* AegisWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AegisWallet.xcdatamodel; sourceTree = "<group>"; };
 		2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FixedPeers.plist; path = ../FixedPeers.plist; sourceTree = "<group>"; };
+		2B6349D2199E6CE800B9B8E9 /* AegisWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AegisWallet.xcdatamodel; sourceTree = "<group>"; };
 		79762D5D1987B46B002D239E /* BRAddressEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressEntity.h; sourceTree = "<group>"; };
 		79762D5E1987B46B002D239E /* BRAddressEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressEntity.m; sourceTree = "<group>"; };
 		79762D5F1987B46B002D239E /* BRPeerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPeerEntity.h; sourceTree = "<group>"; };
@@ -269,8 +269,6 @@
 		E1AA5D05195363BE006F3545 /* Aegis Bitcoin Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				2B6349C7199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld */,
-				2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */,
 				2B6349C6199E5BB700B9B8E9 /* Aegis Bitcoin Wallet.entitlements */,
 				79762D981987B49E002D239E /* Categories */,
 				E1AA5D3B195520A9006F3545 /* Utils */,
@@ -284,6 +282,8 @@
 				79762DA81987B6EC002D239E /* Externals */,
 				E1AA5D06195363BE006F3545 /* Supporting Files */,
 				E1AA5D2E195363D5006F3545 /* Main.storyboard */,
+				2B6349D1199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld */,
+				2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */,
 				E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */,
 			);
 			path = "Aegis Bitcoin Wallet";
@@ -522,7 +522,6 @@
 				79762D931987B48C002D239E /* BRPeer.m in Sources */,
 				79762D6B1987B46B002D239E /* BRTxOutputEntity.m in Sources */,
 				79762D911987B48C002D239E /* BRPaymentProtocol.m in Sources */,
-				2B6349CA199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld in Sources */,
 				79762D8E1987B48C002D239E /* BRKey+BIP38.m in Sources */,
 				79762D941987B48C002D239E /* BRPeerManager.m in Sources */,
 				79762D8A1987B48C002D239E /* BRBIP32Sequence.m in Sources */,
@@ -531,6 +530,7 @@
 				2B6349C5199E514B00B9B8E9 /* AWSeedStartController.m in Sources */,
 				79762D901987B48C002D239E /* BRMerkleBlockEntity.m in Sources */,
 				79762DAB1987B6F7002D239E /* Reachability.m in Sources */,
+				2B6349D3199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld in Sources */,
 				79762D8C1987B48C002D239E /* BRBloomFilter.m in Sources */,
 				E1AA5D0C195363BF006F3545 /* main.m in Sources */,
 				79762D961987B48C002D239E /* BRWallet.m in Sources */,
@@ -785,12 +785,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2B6349C7199E5FD000B9B8E9 /* AegisWallet.xcdatamodeld */ = {
+		2B6349D1199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2B6349C8199E5FD000B9B8E9 /* AegisWallet.xcdatamodel */,
+				2B6349D2199E6CE800B9B8E9 /* AegisWallet.xcdatamodel */,
 			);
-			currentVersion = 2B6349C8199E5FD000B9B8E9 /* AegisWallet.xcdatamodel */;
+			currentVersion = 2B6349D2199E6CE800B9B8E9 /* AegisWallet.xcdatamodel */;
 			name = AegisWallet.xcdatamodeld;
 			path = ../AegisWallet.xcdatamodeld;
 			sourceTree = "<group>";
