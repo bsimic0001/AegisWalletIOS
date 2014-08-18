@@ -37,6 +37,7 @@
 		79762DAB1987B6F7002D239E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762DAA1987B6F7002D239E /* Reachability.m */; };
 		797636A51987B8A5002D239E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797636A31987B8A5002D239E /* libcrypto.a */; };
 		797636A61987B8A5002D239E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797636A41987B8A5002D239E /* libssl.a */; };
+		79AE209D19A219B40055A618 /* AWReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AE209C19A219B40055A618 /* AWReceiveViewController.m */; };
 		E15C8F0B1958C19000C6D705 /* BIP39EnglishWords.plist in Resources */ = {isa = PBXBuildFile; fileRef = E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */; };
 		E15C8F0D1959E2A400C6D705 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15C8F0C1959E2A400C6D705 /* Security.framework */; };
 		E1AA5D00195363BE006F3545 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AA5CFF195363BE006F3545 /* Foundation.framework */; };
@@ -128,6 +129,8 @@
 		79762DAA1987B6F7002D239E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = SOURCE_ROOT; };
 		797636A31987B8A5002D239E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		797636A41987B8A5002D239E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		79AE209B19A219B40055A618 /* AWReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWReceiveViewController.h; sourceTree = "<group>"; };
+		79AE209C19A219B40055A618 /* AWReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWReceiveViewController.m; sourceTree = "<group>"; };
 		E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BIP39EnglishWords.plist; sourceTree = "<group>"; };
 		E15C8F0C1959E2A400C6D705 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1AA5CFC195363BE006F3545 /* Aegis Bitcoin Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aegis Bitcoin Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -370,6 +373,8 @@
 				E1AA5D3919548A6E006F3545 /* AWInitViewController.m */,
 				2B6349C3199E514B00B9B8E9 /* AWSeedStartController.h */,
 				2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */,
+				79AE209B19A219B40055A618 /* AWReceiveViewController.h */,
+				79AE209C19A219B40055A618 /* AWReceiveViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				79762DA41987B4BD002D239E /* NSData+Hash.m in Sources */,
 				79762D8D1987B48C002D239E /* BRKey.m in Sources */,
 				E1AA5D10195363BF006F3545 /* AWAppDelegate.m in Sources */,
+				79AE209D19A219B40055A618 /* AWReceiveViewController.m in Sources */,
 				79762DA51987B4BD002D239E /* NSManagedObject+Sugar.m in Sources */,
 				79762D931987B48C002D239E /* BRPeer.m in Sources */,
 				79762D6B1987B46B002D239E /* BRTxOutputEntity.m in Sources */,

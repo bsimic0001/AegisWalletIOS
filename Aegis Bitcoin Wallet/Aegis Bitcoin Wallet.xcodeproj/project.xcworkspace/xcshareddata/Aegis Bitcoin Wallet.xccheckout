@@ -10,29 +10,29 @@
 	<string>Aegis Bitcoin Wallet</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>33426DF3-BFEF-475E-AA6B-02AF05C987EB</key>
+		<key>0735155029DD9456F9650E509D1AA5B272C8505B</key>
 		<string>https://github.com/bsimic0001/AegisWalletIOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Aegis Bitcoin Wallet/Aegis Bitcoin Wallet.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>33426DF3-BFEF-475E-AA6B-02AF05C987EB</key>
+		<key>0735155029DD9456F9650E509D1AA5B272C8505B</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/bsimic0001/AegisWalletIOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>33426DF3-BFEF-475E-AA6B-02AF05C987EB</string>
+	<string>0735155029DD9456F9650E509D1AA5B272C8505B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>33426DF3-BFEF-475E-AA6B-02AF05C987EB</string>
+			<string>0735155029DD9456F9650E509D1AA5B272C8505B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AegisWalletIOS</string>
 		</dict>

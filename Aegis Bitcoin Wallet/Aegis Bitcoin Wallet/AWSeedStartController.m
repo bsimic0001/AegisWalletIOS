@@ -50,6 +50,16 @@
 
 }
 
+/*- (IBAction)done:(id)sender
+{
+    if (self.navigationController.viewControllers.firstObject != self) return;
+    
+    self.navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self.navigationController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES
+                                                                                                    completion:nil];
+}
+*/
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
