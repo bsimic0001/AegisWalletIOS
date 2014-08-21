@@ -1,43 +1,29 @@
 //
-//  AWReceiveViewController.m
+//  AWMainViewController.m
 //  Aegis Bitcoin Wallet
 //
-//  Created by Tim Kelley on 8/18/14.
+//  Created by Tim Kelley on 8/21/14.
 //  Copyright (c) 2014 Bojan Simic. All rights reserved.
 //
 
-#import "AWReceiveViewController.h"
-#import "BRWalletManager.h"
-#import "BRWallet.h"
+#import "AWMainViewController.h"
 
-@interface AWReceiveViewController ()
-
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@interface AWMainViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *bitcoinBalance;
 @property (weak, nonatomic) IBOutlet UILabel *currencyBalance;
-@property (weak, nonatomic) IBOutlet UITextField *amountTxtField;
-@property (strong, nonatomic) NSString* receiveAddress;
 
 @end
 
-@implementation AWReceiveViewController
+@implementation AWMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.addressLabel.text = self.receiveAddress;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSString*)receiveAddress {
-    return [[[BRWalletManager sharedInstance] wallet] receiveAddress];
 }
 
 /*
