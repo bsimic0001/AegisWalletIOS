@@ -36,6 +36,8 @@
     self.currencyBalance.text = [manager localCurrencyStringForAmount:manager.wallet.balance];
     
     [self showQrCode];
+    NSLog(@"REC ADDRESS: %@", [self receiveAddress]);
+    
 }
 
 - (void)didReceiveMemoryWarning {
