@@ -41,7 +41,7 @@
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     
-    if ([[UIApplication sharedApplication] isProtectedDataAvailable] && !manager.wallet) {
+    if ([[UIApplication sharedApplication] isProtectedDataAvailable] && !manager.wallet){
         [manager generateRandomSeed];
         [[BRPeerManager sharedInstance] connect];
     }

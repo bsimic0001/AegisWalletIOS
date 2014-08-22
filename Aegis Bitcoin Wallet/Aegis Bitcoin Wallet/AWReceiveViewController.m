@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currencyBalance;
 @property (weak, nonatomic) IBOutlet UITextField *amountTxtField;
 @property (strong, nonatomic) NSString* receiveAddress;
+@property (weak, nonatomic) IBOutlet UIImageView *qrCode;
 
 @end
 
@@ -29,6 +30,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.addressLabel.text = self.receiveAddress;
+    
+    BRWalletManager *manager = [BRWalletManager sharedInstance];
+    self.bitcoinBalance.text = [manager stringForAmount:manager.wallet.balance];
+    self.currencyBalance.text = [manager localCurrencyStringForAmount:manager.wallet.balance];
+    
+    [self showQrCode];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +45,35 @@
 
 - (NSString*)receiveAddress {
     return [[[BRWalletManager sharedInstance] wallet] receiveAddress];
+}
+
+- (void) showQrCode{
+    
+    NSData *data = [self.receiveAddress dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *s = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    
+    [filter setValue:[s dataUsingEncoding:NSISOLatin1StringEncoding] forKey:@"inputMessage"];
+    [filter setValue:@"L" forKey:@"inputCorrectionLevel"];
+    UIGraphicsBeginImageContext(self.qrCode.bounds.size);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGImageRef img = [[CIContext contextWithOptions:nil] createCGImage:filter.outputImage
+                                                              fromRect:filter.outputImage.extent];
+    
+    if (context) {
+        CGContextSetInterpolationQuality(context, kCGInterpolationNone);
+        CGContextDrawImage(context, CGContextGetClipBoundingBox(context), img);
+        self.qrCode.image = [UIImage imageWithCGImage:UIGraphicsGetImageFromCurrentImageContext().CGImage scale:1.0
+                                          orientation:UIImageOrientationDownMirrored];
+        //[self.addressButton setTitle:self.paymentAddress forState:UIControlStateNormal];
+        //    self.updated = YES;
+    }
+    
+    UIGraphicsEndImageContext();
+    CGImageRelease(img);
+
 }
 
 /*
