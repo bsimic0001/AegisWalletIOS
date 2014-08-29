@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+//TODO: do something with amount view
+//#import "BRAmountViewController.h"
 
-@interface AWSendViewController : UIViewController
+@interface AWSendViewController : UIViewController <UIAlertViewDelegate,
+    UITextViewDelegate,
+    AVCaptureMetadataOutputObjectsDelegate,
+    UIViewControllerTransitioningDelegate>
+
+- (void)handleURL:(NSURL *)url;
+- (void)handleFile:(NSData *)file;
 
 @end

@@ -10,6 +10,7 @@
 		2B6349C5199E514B00B9B8E9 /* AWSeedStartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349C4199E514B00B9B8E9 /* AWSeedStartController.m */; };
 		2B6349CB199E5FD000B9B8E9 /* FixedPeers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */; };
 		2B6349D3199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B6349D1199E6CE800B9B8E9 /* AegisWallet.xcdatamodeld */; };
+		2B760ACB19B0C0C700A96366 /* AWScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B760ACA19B0C0C700A96366 /* AWScanViewController.m */; };
 		79421C4419A6912B00AB3653 /* AWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79421C4319A6912B00AB3653 /* AWMainViewController.m */; };
 		79421C4719A6925B00AB3653 /* AWSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79421C4619A6925B00AB3653 /* AWSendViewController.m */; };
 		79762D671987B46B002D239E /* BRAddressEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79762D5E1987B46B002D239E /* BRAddressEntity.m */; };
@@ -77,6 +78,8 @@
 		2B6349C6199E5BB700B9B8E9 /* Aegis Bitcoin Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Aegis Bitcoin Wallet.entitlements"; sourceTree = "<group>"; };
 		2B6349C9199E5FD000B9B8E9 /* FixedPeers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FixedPeers.plist; path = ../FixedPeers.plist; sourceTree = "<group>"; };
 		2B6349D2199E6CE800B9B8E9 /* AegisWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AegisWallet.xcdatamodel; sourceTree = "<group>"; };
+		2B760AC919B0C0C700A96366 /* AWScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWScanViewController.h; sourceTree = "<group>"; };
+		2B760ACA19B0C0C700A96366 /* AWScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWScanViewController.m; sourceTree = "<group>"; };
 		79421C4219A6912B00AB3653 /* AWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWMainViewController.h; sourceTree = "<group>"; };
 		79421C4319A6912B00AB3653 /* AWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWMainViewController.m; sourceTree = "<group>"; };
 		79421C4519A6925B00AB3653 /* AWSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSendViewController.h; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 				79421C4319A6912B00AB3653 /* AWMainViewController.m */,
 				79421C4519A6925B00AB3653 /* AWSendViewController.h */,
 				79421C4619A6925B00AB3653 /* AWSendViewController.m */,
+				2B760AC919B0C0C700A96366 /* AWScanViewController.h */,
+				2B760ACA19B0C0C700A96366 /* AWScanViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				79762D8C1987B48C002D239E /* BRBloomFilter.m in Sources */,
 				E1AA5D0C195363BF006F3545 /* main.m in Sources */,
 				79762D961987B48C002D239E /* BRWallet.m in Sources */,
+				2B760ACB19B0C0C700A96366 /* AWScanViewController.m in Sources */,
 				79762D8B1987B48C002D239E /* BRBIP39Mnemonic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

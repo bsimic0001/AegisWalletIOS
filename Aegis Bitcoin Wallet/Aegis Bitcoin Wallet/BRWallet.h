@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "BRKeySequence.h"
 
 #define BRWalletBalanceChangedNotification @"BRWalletBalanceChangedNotification"
 
@@ -38,7 +39,8 @@
 @property (nonatomic, readonly) NSArray *unspentOutputs; // NSData objects containing serialized UTXOs
 @property (nonatomic, readonly) NSArray *recentTransactions; // BRTransaction objects sorted by date, most recent first
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context andSeed:(NSData *(^)())seed;
+- (instancetype)initWithContext:(NSManagedObjectContext *)context sequence:(id<BRKeySequence>)sequence
+seed:(NSData *(^)())seed;
 
 // true if the address is known to belong to the wallet
 - (BOOL)containsAddress:(NSString *)address;
@@ -90,6 +92,9 @@
 
 // returns the first non-change output address for sends, first input address for receives, or nil if unkown
 - (NSString *)addressForTransaction:(BRTransaction *)transaction;
+
+// historical wallet balance after the given transaction, or current balance if transaction is not registered in wallet
+- (uint64_t)balanceAfterTransaction:(BRTransaction *)transaction;
 
 // returns the block height after which the transaction is likely to be processed without including a fee
 - (uint32_t)blockHeightUntilFree:(BRTransaction *)transaction;

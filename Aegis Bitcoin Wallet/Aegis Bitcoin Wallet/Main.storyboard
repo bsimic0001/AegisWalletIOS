@@ -237,7 +237,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5F-fS-rfw">
-                                <rect key="frame" x="35" y="300" width="144" height="30"/>
+                                <rect key="frame" x="9" y="300" width="144" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -252,7 +252,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="scanQrCode:" destination="xG1-vi-A4l" eventType="touchUpInside" id="7pC-Di-4rs"/>
+                                    <action selector="scanQrCode:" destination="xG1-vi-A4l" eventType="touchUpInside" id="NFB-HL-bGw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0q-SC-42E">
@@ -261,7 +261,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="send:" destination="xG1-vi-A4l" eventType="touchUpInside" id="gg7-W8-MYJ"/>
+                                    <action selector="send:" destination="xG1-vi-A4l" eventType="touchUpInside" id="Q9T-3G-x6W"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -272,13 +272,56 @@
                         <outlet property="amountTxtField" destination="m5F-fS-rfw" id="7Wm-53-FBn"/>
                         <outlet property="bitcoinBalance" destination="NOQ-UF-1k0" id="zLu-8u-3U9"/>
                         <outlet property="currencyBalance" destination="1le-Q6-goO" id="Mc6-zA-cOa"/>
-                        <outlet property="scanQrCode" destination="nJj-XD-Ggz" id="c40-4u-2Di"/>
                         <outlet property="toAddressTxtField" destination="vHN-XA-UUr" id="ZUX-oB-beI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfD-X7-b3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876" y="-275"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="MRh-9d-J8k">
+            <objects>
+                <viewController storyboardIdentifier="ScanViewController" id="atN-dy-Utw" customClass="AWScanViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gqX-Cz-kUy"/>
+                        <viewControllerLayoutGuide type="bottom" id="9rs-vc-vwg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dp8-Ok-xog">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cameraguide" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-Pj-UB5">
+                                <rect key="frame" x="66" y="194" width="188" height="180"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJN-An-NXs">
+                                <rect key="frame" x="0.0" y="524" width="362" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="f43-E3-gun"/>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-JD-L1N">
+                                <rect key="frame" x="38" y="68" width="244" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="cameraGuide" destination="NxL-Pj-UB5" id="00h-VH-Hae"/>
+                        <outlet property="cameraView" destination="Dp8-Ok-xog" id="ihZ-ge-EuO"/>
+                        <outlet property="message" destination="9Ec-JD-L1N" id="znG-6m-d4F"/>
+                        <outlet property="toolbar" destination="BJN-An-NXs" id="rY2-tn-DIQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqI-fs-Jg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2419" y="-288"/>
         </scene>
         <!--Receive View Controller - REQUEST-->
         <scene sceneID="qFC-KS-tlK">
@@ -373,6 +416,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cameraguide" width="468" height="468"/>
         <image name="initpageicon" width="192" height="192"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

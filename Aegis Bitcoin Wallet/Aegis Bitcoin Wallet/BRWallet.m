@@ -29,7 +29,6 @@
 #import "BRTransaction.h"
 #import "BRTransactionEntity.h"
 #import "BRKeySequence.h"
-#import "BRBIP32Sequence.h"
 #import "NSData+Hash.h"
 #import "NSData+Bitcoin.h"
 #import "NSMutableData+Bitcoin.h"
@@ -49,9 +48,12 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
 @property (nonatomic, strong) id<BRKeySequence> sequence;
 @property (nonatomic, strong) NSData *masterPublicKey;
 @property (nonatomic, strong) NSMutableArray *internalAddresses, *externalAddresses;
-@property (nonatomic, strong) NSMutableSet *allAddresses, *usedAddresses, *spentOutputs, *invalidTx;
-@property (nonatomic, strong) NSMutableOrderedSet *transactions, *utxos;
+@property (nonatomic, strong) NSMutableSet *allAddresses, *usedAddresses;
+@property (nonatomic, strong) NSSet *spentOutputs, *invalidTx;
+@property (nonatomic, strong) NSMutableOrderedSet *transactions;
+@property (nonatomic, strong) NSOrderedSet *utxos;
 @property (nonatomic, strong) NSMutableDictionary *allTx;
+@property (nonatomic, strong) NSArray *balanceHistory;
 @property (nonatomic, strong) NSData *(^seed)();
 @property (nonatomic, strong) NSManagedObjectContext *moc;
 
@@ -59,13 +61,14 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
 
 @implementation BRWallet
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context andSeed:(NSData *(^)())seed
+- (instancetype)initWithContext:(NSManagedObjectContext *)context sequence:(id<BRKeySequence>)sequence
+seed:(NSData *(^)())seed
 {
     if (! (self = [super init])) return nil;
 
     self.moc = context;
+    self.sequence = sequence;
     self.seed = seed;
-    self.sequence = [BRBIP32Sequence new];
     self.allTx = [NSMutableDictionary dictionary];
     self.transactions = [NSMutableOrderedSet orderedSet];
     self.internalAddresses = [NSMutableArray array];
@@ -75,9 +78,6 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
     self.invalidTx = [NSMutableSet set];
     self.spentOutputs = [NSMutableSet set];
     self.utxos = [NSMutableOrderedSet orderedSet];
-
-    //BUG: when switching networks or when installing a developement build overtop an appstore build,
-    // the core data store can be inconsistent with the keychain, need to add a consistency check
 
     [self.moc performBlockAndWait:^{
         [BRAddressEntity setContext:self.moc];
@@ -113,6 +113,7 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
             _masterPublicKey = [self.sequence masterPublicKeyFromSeed:self.seed()];
         }
     }
+    
     return _masterPublicKey;
 }
 
@@ -133,8 +134,10 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
     if (i > 0) [a removeObjectsInRange:NSMakeRange(0, i)];
     if (a.count >= gapLimit) return [a subarrayWithRange:NSMakeRange(0, gapLimit)];
 
-    // get a single address first to avoid blocking receiveAddress and changeAddress
-    if (a.count == 0 && gapLimit > 1) [self addressesWithGapLimit:1 internal:internal];
+    if (gapLimit > 1) { // get receiveAddress and changeAddress first to avoid blocking
+        [self receiveAddress];
+        [self changeAddress];
+    }
 
     @synchronized(self) {
         [a setArray:internal ? self.internalAddresses : self.externalAddresses];
@@ -181,14 +184,27 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
 // each block, however correct transaction ordering cannot be relied upon for determining wallet balance or UTXO set
 - (void)sortTransactions
 {
-    [self.transactions sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        if ([obj1 blockHeight] > [obj2 blockHeight]) return NSOrderedAscending;
-        if ([obj1 blockHeight] < [obj2 blockHeight]) return NSOrderedDescending;
-        if ([[obj1 inputHashes] containsObject:[obj2 txHash]]) return NSOrderedAscending;
-        if ([[obj2 inputHashes] containsObject:[obj1 txHash]]) return NSOrderedDescending;
-        // TODO: recursively compare transactions for input hashes that are in the wallet
-        return NSOrderedSame;
-    }];
+    NSComparator compareTx;
+    __block __weak NSComparator weakCompareTx = compareTx =
+        ^NSComparisonResult(BRTransaction *tx1, BRTransaction *tx2) {
+            if (! tx1 || ! tx2) return NSOrderedSame;
+            if (tx1.blockHeight > tx2.blockHeight) return NSOrderedAscending;
+            if (tx1.blockHeight < tx2.blockHeight) return NSOrderedDescending;
+            if ([tx1.inputHashes containsObject:tx2.txHash]) return NSOrderedAscending;
+            if ([tx2.inputHashes containsObject:tx1.txHash]) return NSOrderedDescending;
+            
+            for (NSData *txHash in tx1.inputHashes) { // recursively compare inputs
+                if (weakCompareTx(self.allTx[txHash], tx2) == NSOrderedAscending) return NSOrderedAscending;
+            }
+            
+            for (NSData *txHash in tx2.inputHashes) {
+                if (weakCompareTx(tx1, self.allTx[txHash]) == NSOrderedDescending) return NSOrderedDescending;
+            }
+            
+            return NSOrderedSame;
+        };
+    
+    [self.transactions sortUsingComparator:compareTx];
 }
 
 - (void)updateBalance
@@ -196,6 +212,7 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
     uint64_t balance = 0;
     NSMutableOrderedSet *utxos = [NSMutableOrderedSet orderedSet];
     NSMutableSet *spentOutputs = [NSMutableSet set], *invalidTx = [NSMutableSet set];
+    NSMutableArray *balanceHistory = [NSMutableArray array];
 
     for (BRTransaction *tx in [self.transactions reverseObjectEnumerator]) {
         NSMutableSet *spent = [NSMutableSet set];
@@ -238,11 +255,14 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
             [utxos removeObject:o];
             balance -= [transaction.outputAmounts[n] unsignedLongLongValue];
         }
+        
+        [balanceHistory insertObject:@(balance) atIndex:0];
     }
 
     self.invalidTx = invalidTx;
     self.spentOutputs = spentOutputs;
     self.utxos = utxos;
+    self.balanceHistory = balanceHistory;
 
     if (balance != _balance) {
         _balance = balance;
@@ -570,6 +590,14 @@ static NSData *txOutput(NSData *txHash, uint32_t n)
     }
 
     return nil;
+}
+
+// historical wallet balance after the given transaction, or current balance if transaction is not registered in wallet
+- (uint64_t)balanceAfterTransaction:(BRTransaction *)transaction
+{
+    NSUInteger i = [self.transactions indexOfObject:transaction];
+    
+    return (i < self.balanceHistory.count) ? [self.balanceHistory[i] unsignedLongLongValue] : self.balance;
 }
 
 // Returns the block height after which the transaction is likely to be processed without including a fee. This is based
