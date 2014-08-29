@@ -165,6 +165,7 @@ static NSString *sanitizeString(NSString *s)
                                  }
                                  
                                  self.amountTxtField.text = [NSString stringWithFormat:@"%llu", request.amount];
+                                 self.toAddressTxtField.text = request.paymentAddress;
                                  
                                  dispatch_async(dispatch_get_main_queue(), ^{
                                      [self.navigationController dismissViewControllerAnimated:YES completion:^{

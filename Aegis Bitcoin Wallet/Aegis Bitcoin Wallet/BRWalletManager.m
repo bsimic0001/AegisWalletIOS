@@ -27,8 +27,8 @@
 #import "BRWallet.h"
 #import "BRKey.h"
 #import "BRKey+BIP38.h"
-#import "BRKeySequence.h"
 #import "BRBIP39Mnemonic.h"
+#import "BRBIP32Sequence.h"
 #import "BRPeer.h"
 #import "BRTransaction.h"
 #import "BRTransactionEntity.h"
@@ -111,6 +111,7 @@ static NSData *getKeychainData(NSString *key)
 @interface BRWalletManager()
 
 @property (nonatomic, strong) BRWallet *wallet;
+@property (nonatomic, strong) id<BRKeySequence> sequence;
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, assign) BOOL sweepFee;
 @property (nonatomic, strong) NSString *sweepKey;
@@ -190,19 +191,51 @@ static NSData *getKeychainData(NSString *key)
 
 - (BRWallet *)wallet
 {
-    
-    NSLog(@"SEED IS: %@", self.seed);
-    
     if (_wallet == nil && self.seed) {
         @synchronized(self) {
             if (_wallet == nil) {
-                _wallet = [[BRWallet alloc] initWithContext:[NSManagedObject context]
-                           andSeed:^NSData *{ return self.seed; }];
+                _wallet = [[BRWallet alloc] initWithContext:[NSManagedObject context] sequence:self.sequence
+                           seed:^NSData *{ return self.seed; }];
+
+                // we need to verify that the keychain matches core data, since they have different access and backup
+                // policies it's possible for them to diverge
+                if (_wallet.addresses.count > 0) {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        BRKey *k = [BRKey keyWithPrivateKey:[self.sequence privateKey:0 internal:NO
+                                                             fromSeed:self.seed]];
+                    
+                        if (! [_wallet containsAddress:k.address]) {
+#if DEBUG
+                            abort(); // don't wipe core data for debug builds
+#endif
+                            [[NSManagedObject context] performBlockAndWait:^{
+                                [BRAddressEntity deleteObjects:[BRAddressEntity allObjects]];
+                                [BRTransactionEntity deleteObjects:[BRTransactionEntity allObjects]];
+                                [NSManagedObject saveContext];
+                            }];
+                        
+                            _wallet = nil;
+                        
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [[NSNotificationCenter defaultCenter]
+                                 postNotificationName:BRWalletManagerSeedChangedNotification object:nil];
+                                [[NSNotificationCenter defaultCenter]
+                                 postNotificationName:BRWalletBalanceChangedNotification object:nil];
+                            });
+                        }
+                    });
+                }
             }
         }
     }
 
     return _wallet;
+}
+
+- (id<BRKeySequence>)sequence
+{
+    if (! _sequence) _sequence = [BRBIP32Sequence new];
+    return _sequence;
 }
 
 - (NSData *)seed
@@ -216,11 +249,9 @@ static NSData *getKeychainData(NSString *key)
         if ([seed isEqual:self.seed]) return;
 
         [[NSManagedObject context] performBlockAndWait:^{
-            
             [BRAddressEntity deleteObjects:[BRAddressEntity allObjects]];
             [BRTransactionEntity deleteObjects:[BRTransactionEntity allObjects]];
             [NSManagedObject saveContext];
-            
         }];
 
         setKeychainData(nil, PIN_KEY);
@@ -306,13 +337,10 @@ static NSData *getKeychainData(NSString *key)
 
 - (void)setPinFailCount:(NSUInteger)count
 {
-    if (count > 0) {
-        NSMutableData *d = [NSMutableData secureDataWithLength:sizeof(NSUInteger)];
+    NSMutableData *d = [NSMutableData secureDataWithLength:sizeof(NSUInteger)];
 
-        *(NSUInteger *)d.mutableBytes = count;
-        setKeychainData(d, PIN_FAIL_COUNT_KEY);
-    }
-    else setKeychainData(nil, PIN_FAIL_COUNT_KEY);
+    *(NSUInteger *)d.mutableBytes = count;
+    setKeychainData(d, PIN_FAIL_COUNT_KEY);
 }
 
 - (uint32_t)pinFailHeight
@@ -324,13 +352,10 @@ static NSData *getKeychainData(NSString *key)
 
 - (void)setPinFailHeight:(uint32_t)height
 {
-    if (height > 0) {
-        NSMutableData *d = [NSMutableData secureDataWithLength:sizeof(uint32_t)];
+    NSMutableData *d = [NSMutableData secureDataWithLength:sizeof(uint32_t)];
 
-        *(uint32_t *)d.mutableBytes = height;
-        setKeychainData(d, PIN_FAIL_HEIGHT_KEY);
-    }
-    else setKeychainData(nil, PIN_FAIL_HEIGHT_KEY);
+    *(uint32_t *)d.mutableBytes = height;
+    setKeychainData(d, PIN_FAIL_HEIGHT_KEY);
 }
 
 - (void)generateRandomSeed

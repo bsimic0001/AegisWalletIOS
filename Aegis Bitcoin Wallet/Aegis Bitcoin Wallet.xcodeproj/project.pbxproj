@@ -461,7 +461,7 @@
 				ORGANIZATIONNAME = "Bojan Simic";
 				TargetAttributes = {
 					E1AA5CFB195363BE006F3545 = {
-						DevelopmentTeam = 9Z9Y6J7L75;
+						DevelopmentTeam = F5GCE5646X;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -687,8 +687,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sogeti USA LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sogeti USA LLC";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -704,7 +704,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "BE08B2E8-9156-494E-B163-5A2BA9C1D778";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -714,8 +714,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sogeti USA LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sogeti USA LLC";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aegis Bitcoin Wallet/Aegis Bitcoin Wallet-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -731,7 +731,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "BE08B2E8-9156-494E-B163-5A2BA9C1D778";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

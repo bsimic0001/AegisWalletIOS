@@ -25,6 +25,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define WALLET_NEEDS_BACKUP_KEY @"WALLET_NEEDS_BACKUP"
 #define BRWalletManagerSeedChangedNotification @"BRWalletManagerSeedChangedNotification"
 
 @class BRWallet, BRTransaction;
@@ -42,7 +43,7 @@
 @property (nonatomic, readonly) NSNumberFormatter *localFormat;
 @property (nonatomic, copy) NSString *localCurrencyCode;
 @property (nonatomic, readonly) double localCurrencyPrice;
-@property (nonatomic, readonly) NSArray *currencyCodes;
+@property (nonatomic, readonly) NSArray *currencyCodes; // list of supported local currencies
 
 + (instancetype)sharedInstance;
 

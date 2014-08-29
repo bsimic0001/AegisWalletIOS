@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cWA-6Q-MFD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cWA-6Q-MFD">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
-        <!--Init View Controller - InitAppController-->
+        <!--InitAppController-->
         <scene sceneID="0Fg-Oq-zAM">
             <objects>
                 <viewController title="InitAppController" id="KUl-62-92z" customClass="AWInitViewController" sceneMemberID="viewController">
@@ -127,7 +127,7 @@
             </objects>
             <point key="canvasLocation" x="1055" y="21"/>
         </scene>
-        <!--Main View Controller - AEGIS WALLET-->
+        <!--AEGIS WALLET-->
         <scene sceneID="2Ro-nj-u3J">
             <objects>
                 <viewController id="5tn-DX-Dl6" customClass="AWMainViewController" sceneMemberID="viewController">
@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="1441" y="21"/>
         </scene>
-        <!--Send View Controller - SEND-->
+        <!--SEND-->
         <scene sceneID="Rhl-Sn-edN">
             <objects>
                 <viewController id="xG1-vi-A4l" customClass="AWSendViewController" sceneMemberID="viewController">
@@ -291,39 +291,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cameraguide" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-Pj-UB5">
-                                <rect key="frame" x="66" y="194" width="188" height="180"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJN-An-NXs">
-                                <rect key="frame" x="0.0" y="524" width="362" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Item" id="f43-E3-gun"/>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-JD-L1N">
-                                <rect key="frame" x="38" y="68" width="244" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lft-S7-aUx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSW-kV-t0E">
+                                <rect key="frame" x="8" y="250" width="304" height="68"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cameraguide" translatesAutoresizingMaskIntoConstraints="NO" id="dVs-yc-wYV">
+                                <rect key="frame" x="1" y="177" width="317" height="215"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="P6h-IC-EFT">
+                                <rect key="frame" x="0.0" y="523" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="stop" id="CLj-2S-KlL">
+                                        <connections>
+                                            <action selector="done:" destination="atN-dy-Utw" id="rHY-h7-fZm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="cameraGuide" destination="NxL-Pj-UB5" id="00h-VH-Hae"/>
-                        <outlet property="cameraView" destination="Dp8-Ok-xog" id="ihZ-ge-EuO"/>
-                        <outlet property="message" destination="9Ec-JD-L1N" id="znG-6m-d4F"/>
-                        <outlet property="toolbar" destination="BJN-An-NXs" id="rY2-tn-DIQ"/>
+                        <outlet property="cameraGuide" destination="dVs-yc-wYV" id="XUy-7E-W1a"/>
+                        <outlet property="cameraView" destination="Lft-S7-aUx" id="bZ0-H1-guF"/>
+                        <outlet property="message" destination="oSW-kV-t0E" id="Y9g-Sj-omI"/>
+                        <outlet property="toolbar" destination="P6h-IC-EFT" id="OYh-Xv-hFf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqI-fs-Jg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2419" y="-288"/>
+            <point key="canvasLocation" x="2299" y="-86"/>
         </scene>
-        <!--Receive View Controller - REQUEST-->
+        <!--REQUEST-->
         <scene sceneID="qFC-KS-tlK">
             <objects>
                 <viewController id="ugn-DS-Ths" customClass="AWReceiveViewController" sceneMemberID="viewController">
@@ -378,7 +384,6 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eap-Qw-xB5">
                                 <rect key="frame" x="60" y="222" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -422,6 +427,9 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
 </document>
