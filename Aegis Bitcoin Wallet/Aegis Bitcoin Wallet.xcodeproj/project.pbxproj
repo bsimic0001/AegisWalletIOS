@@ -41,6 +41,7 @@
 		797636A51987B8A5002D239E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797636A31987B8A5002D239E /* libcrypto.a */; };
 		797636A61987B8A5002D239E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797636A41987B8A5002D239E /* libssl.a */; };
 		79AE209D19A219B40055A618 /* AWReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AE209C19A219B40055A618 /* AWReceiveViewController.m */; };
+		79C72BFD19BB779B0068B15F /* AWTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C72BFC19BB779B0068B15F /* AWTransactionsViewController.m */; };
 		E15C8F0B1958C19000C6D705 /* BIP39EnglishWords.plist in Resources */ = {isa = PBXBuildFile; fileRef = E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */; };
 		E15C8F0D1959E2A400C6D705 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15C8F0C1959E2A400C6D705 /* Security.framework */; };
 		E1AA5D00195363BE006F3545 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AA5CFF195363BE006F3545 /* Foundation.framework */; };
@@ -140,6 +141,8 @@
 		797636A41987B8A5002D239E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		79AE209B19A219B40055A618 /* AWReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWReceiveViewController.h; sourceTree = "<group>"; };
 		79AE209C19A219B40055A618 /* AWReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWReceiveViewController.m; sourceTree = "<group>"; };
+		79C72BFB19BB779B0068B15F /* AWTransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWTransactionsViewController.h; sourceTree = "<group>"; };
+		79C72BFC19BB779B0068B15F /* AWTransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWTransactionsViewController.m; sourceTree = "<group>"; };
 		E15C8F0A1958C19000C6D705 /* BIP39EnglishWords.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BIP39EnglishWords.plist; sourceTree = "<group>"; };
 		E15C8F0C1959E2A400C6D705 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1AA5CFC195363BE006F3545 /* Aegis Bitcoin Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aegis Bitcoin Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,6 +393,8 @@
 				79421C4619A6925B00AB3653 /* AWSendViewController.m */,
 				2B760AC919B0C0C700A96366 /* AWScanViewController.h */,
 				2B760ACA19B0C0C700A96366 /* AWScanViewController.m */,
+				79C72BFB19BB779B0068B15F /* AWTransactionsViewController.h */,
+				79C72BFC19BB779B0068B15F /* AWTransactionsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				79762D8C1987B48C002D239E /* BRBloomFilter.m in Sources */,
 				E1AA5D0C195363BF006F3545 /* main.m in Sources */,
 				79762D961987B48C002D239E /* BRWallet.m in Sources */,
+				79C72BFD19BB779B0068B15F /* AWTransactionsViewController.m in Sources */,
 				2B760ACB19B0C0C700A96366 /* AWScanViewController.m in Sources */,
 				79762D8B1987B48C002D239E /* BRBIP39Mnemonic.m in Sources */,
 			);

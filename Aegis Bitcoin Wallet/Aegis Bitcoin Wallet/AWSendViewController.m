@@ -106,6 +106,27 @@ static NSString *sanitizeString(NSString *s)
 
 
 - (IBAction)send:(id)sender {
+    BRWalletManager *m = [BRWalletManager sharedInstance];
+    //Check if there is a request
+    if(self.request) {
+        if([self.toAddressTxtField.text length] != 0 && [self.amountTxtField.text length] != 0) {
+            self.request.amount = [m amountForString:self.amountTxtField.text];
+            [self confirmRequest:self.request];
+        }
+        else {
+            [[[UIAlertView alloc] initWithTitle:@"Input" message:@"A receive address and amount must be entered." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+    }
+    else {
+        if([self.toAddressTxtField.text length] != 0 && [self.amountTxtField.text length] != 0) {
+            BRPaymentRequest *request = [BRPaymentRequest requestWithString:self.toAddressTxtField.text];
+            request.amount = [m amountForString:self.amountTxtField.text];
+            [self confirmRequest:request];
+        }
+        else {
+            [[[UIAlertView alloc] initWithTitle:@"Input" message:@"A receive address and amount must be entered." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+    }
 }
 
 - (IBAction)cancel:(id)sender
@@ -235,9 +256,6 @@ static NSString *sanitizeString(NSString *s)
     
     BRWalletManager *m = [BRWalletManager sharedInstance];
     
-    //TODO: HARD CODED AMOUNT HERE!!
-    request.amount = 60000;
-    
     if ([m.wallet containsAddress:request.paymentAddress]) {
         [[[UIAlertView alloc] initWithTitle:nil
                                     message:NSLocalizedString(@"this payment address is already in your wallet", nil)
@@ -245,15 +263,9 @@ static NSString *sanitizeString(NSString *s)
         [self cancel:nil];
     }
     else if (request.amount == 0) {
-        //BRAmountViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"AmountViewController"];
-        //c.info = request;
-        //c.delegate = self;
-        //c.to = (request.label.length > 0) ? sanitizeString(request.label) :
-        [NSString base58WithData:[request.paymentAddress base58ToData]];
-        //c.navigationItem.title = [NSString stringWithFormat:@"%@ (%@)", [m stringForAmount:m.wallet.balance],
-        //                          [m localCurrencyStringForAmount:m.wallet.balance]];
-        //[self.navigationController pushViewController:c animated:YES];
-        //self.amountTxtField.text = [request.paymentAddress base58ToData];
+        //Set payment address field.  Then return to get amount input from UI.
+        self.toAddressTxtField.text = request.paymentAddress;
+        return;
     }
     else if (request.amount < TX_MIN_OUTPUT_AMOUNT) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"couldn't make payment", nil)
