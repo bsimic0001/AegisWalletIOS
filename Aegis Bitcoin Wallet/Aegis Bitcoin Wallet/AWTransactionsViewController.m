@@ -140,8 +140,7 @@
 {
     static NSString *noTxIdent = @"NoTxCell", *transactionIdent = @"TransactionCell";
     UITableViewCell *cell = nil;
-    UILabel *textLabel, *unconfirmedLabel, *sentLabel, *localCurrencyLabel, *balanceLabel, *localBalanceLabel,
-    *toggleLabel;
+    UILabel *localCurrencyLabel, *bitcoinsLabel, *dateLabel, *merchantLabel;
 //    BRCopyLabel *detailTextLabel;
     BRWalletManager *m = [BRWalletManager sharedInstance];
     
@@ -155,13 +154,11 @@
     
     if (self.transactions.count > 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:transactionIdent];
-        textLabel = (id)[cell viewWithTag:1];
-        //detailTextLabel = (id)[cell viewWithTag:2];
-        unconfirmedLabel = (id)[cell viewWithTag:3];
-        localCurrencyLabel = (id)[cell viewWithTag:5];
-        sentLabel = (id)[cell viewWithTag:6];
-        balanceLabel = (id)[cell viewWithTag:7];
-        localBalanceLabel = (id)[cell viewWithTag:8];
+        UIImageView *imageView = (id) [cell viewWithTag:0];
+        localCurrencyLabel = (id)[cell viewWithTag:1];
+        bitcoinsLabel = (id)[cell viewWithTag:2];
+        dateLabel = (id)[cell viewWithTag:3];
+        merchantLabel = (id)[cell viewWithTag:4];
         
         BRTransaction *tx = self.transactions[indexPath.row];
         uint64_t received = [m.wallet amountReceivedFromTransaction:tx],
@@ -172,73 +169,80 @@
         NSUInteger peerCount = [[BRPeerManager sharedInstance] peerCount],
         relayCount = [[BRPeerManager sharedInstance] relayCountForTransaction:tx.txHash];
         
-        sentLabel.hidden = YES;
-        unconfirmedLabel.hidden = NO;
-        //detailTextLabel.text = [self dateForTx:tx];
-        balanceLabel.text = [m stringForAmount:balance];
-        localBalanceLabel.text = [NSString stringWithFormat:@"(%@)", [m localCurrencyStringForAmount:balance]];
+        //bitcoinsLabel.text = [m stringForAmount:balance];
+        //localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)", [m localCurrencyStringForAmount:balance]];
         
-        if (confirms == 0 && ! [m.wallet transactionIsValid:tx]) {
-            unconfirmedLabel.text = NSLocalizedString(@"INVALID", nil);
-            unconfirmedLabel.backgroundColor = [UIColor redColor];
-        }
-        else if (confirms == 0 && [m.wallet transactionIsPending:tx atBlockHeight:height]) {
-            unconfirmedLabel.text = NSLocalizedString(@"post-dated", nil);
-            unconfirmedLabel.backgroundColor = [UIColor redColor];
-        }
-        else if (confirms == 0 && (peerCount == 0 || relayCount < peerCount)) {
-            unconfirmedLabel.text = NSLocalizedString(@"unverified", nil);
-        }
-        else if (confirms < 6) {
-            unconfirmedLabel.text = (confirms == 1) ? NSLocalizedString(@"1 confirmation", nil) :
-            [NSString stringWithFormat:NSLocalizedString(@"%d confirmations", nil),
-             (int)confirms];
-        }
-        else {
-            unconfirmedLabel.text = nil;
-            unconfirmedLabel.hidden = YES;
-            sentLabel.hidden = NO;
-        }
+        dateLabel.text = [self dateForTx:tx];
         
         if (! [m.wallet addressForTransaction:tx] && sent > 0) {
-            textLabel.text = [m stringForAmount:sent];
-            localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
-                                       [m localCurrencyStringForAmount:sent]];
-            sentLabel.text = NSLocalizedString(@"moved", nil);
-            sentLabel.textColor = [UIColor blackColor];
+            merchantLabel.text = [m.wallet addressForTransaction:tx];
         }
         else if (sent > 0) {
-            textLabel.text = [m stringForAmount:received - sent];
-            localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
-                                       [m localCurrencyStringForAmount:received - sent]];
-            sentLabel.text = NSLocalizedString(@"sent", nil);
-            sentLabel.textColor = [UIColor colorWithRed:1.0 green:0.33 blue:0.33 alpha:1.0];
+            //Sent image
+            imageView.image = [UIImage imageNamed:@"aegis_send_icon"];
+            bitcoinsLabel.text = [m stringForAmount:sent];
+            localCurrencyLabel.text = [m localCurrencyStringForAmount:sent];
         }
         else {
-            textLabel.text = [m stringForAmount:received];
-            localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
-                                       [m localCurrencyStringForAmount:received]];
-            sentLabel.text = NSLocalizedString(@"received", nil);
-            sentLabel.textColor = [UIColor colorWithRed:0.0 green:0.75 blue:0.0 alpha:1.0];
+            //Received image
+            imageView.image = [UIImage imageNamed:@"aegis_receive_icon"];
+            bitcoinsLabel.text = [m stringForAmount:received];
+            localCurrencyLabel.text = [m localCurrencyStringForAmount:received];
         }
         
-        if (! unconfirmedLabel.hidden) {
-            unconfirmedLabel.layer.cornerRadius = 3.0;
-            unconfirmedLabel.backgroundColor = [UIColor lightGrayColor];
-            unconfirmedLabel.text = [unconfirmedLabel.text stringByAppendingString:@"  "];
-        }
-        else {
-            sentLabel.layer.cornerRadius = 3.0;
-            sentLabel.layer.borderWidth = 0.5;
-            sentLabel.text = [sentLabel.text stringByAppendingString:@"  "];
-            sentLabel.layer.borderColor = sentLabel.textColor.CGColor;
-            sentLabel.highlightedTextColor = sentLabel.textColor;
-        }
     }
     else cell = [tableView dequeueReusableCellWithIdentifier:noTxIdent];
 
     
     return cell;
 }
+
+- (NSString *)dateForTx:(BRTransaction *)tx
+{
+    //Friday | 13 June, 2014 | 7:14 PM
+    static NSDateFormatter *f1 = nil, *f2 = nil, *f3 = nil;
+    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate], w = now - 6*24*60*60, y = now - 365*24*60*60;
+    NSString *date = self.txDates[tx.txHash];
+    
+    if (date) return date;
+    
+    if (! f1) { //BUG: need to watch for NSCurrentLocaleDidChangeNotification
+        f1 = [NSDateFormatter new];
+        f2 = [NSDateFormatter new];
+        f3 = [NSDateFormatter new];
+        
+        f1.dateFormat = [[[[[[[NSDateFormatter dateFormatFromTemplate:@"Mdja" options:0 locale:[NSLocale currentLocale]]
+                              stringByReplacingOccurrencesOfString:@", " withString:@" "]
+                             stringByReplacingOccurrencesOfString:@" a" withString:@"a"]
+                            stringByReplacingOccurrencesOfString:@"hh" withString:@"h"]
+                           stringByReplacingOccurrencesOfString:@" ha" withString:@"@ha"]
+                          stringByReplacingOccurrencesOfString:@"HH" withString:@"H"]
+                         stringByReplacingOccurrencesOfString:@"H " withString:@"H'h' "];
+        f1.dateFormat = [f1.dateFormat stringByReplacingOccurrencesOfString:@"H" withString:@"H'h'"
+                                                                    options:NSBackwardsSearch|NSAnchoredSearch range:NSMakeRange(0, f1.dateFormat.length)];
+        f2.dateFormat = [[NSDateFormatter dateFormatFromTemplate:@"Md" options:0 locale:[NSLocale currentLocale]]
+                         stringByReplacingOccurrencesOfString:@", " withString:@" "];
+        f3.dateFormat = [[NSDateFormatter dateFormatFromTemplate:@"yyMd" options:0 locale:[NSLocale currentLocale]]
+                         stringByReplacingOccurrencesOfString:@", " withString:@" "];
+    }
+    
+    NSTimeInterval t = [[BRPeerManager sharedInstance] timestampForBlockHeight:tx.blockHeight];
+    NSDateFormatter *f = (t > w) ? f1 : ((t > y) ? f2 : f3);
+    
+    //date = [[[[f stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:t - 5*60]] lowercaseString]
+      //       stringByReplacingOccurrencesOfString:@"am" withString:@"a"]
+      //      stringByReplacingOccurrencesOfString:@"pm" withString:@"p"];
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE' | 'dd MMM, yyyy' | 'HH:mm"];
+    
+    date = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:t - 5*60]];
+    
+    self.txDates[tx.txHash] = date;
+    
+    return date;
+}
+
 
 @end
